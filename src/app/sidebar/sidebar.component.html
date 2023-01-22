@@ -1,0 +1,28 @@
+ <mat-drawer #drawer class="example-sidenav" mode="side" [opened]="open">
+  <mat-nav-list role="list">
+    <mat-list-item role="listitem" routerLink="/home">
+      <mat-icon mat-list-icon class="mx-3">home</mat-icon>
+      <span >Home</span>
+    </mat-list-item>
+    <mat-list-item role="listitem" routerLink="/subscription">
+      <mat-icon mat-list-icon class="mx-3">subscriptions</mat-icon>
+      <span>Subscriptions</span>
+    </mat-list-item>
+    <mat-list-item role="listitem" routerLink="/history">
+      <mat-icon mat-list-icon class="mx-3">history</mat-icon>
+      <span>History</span>
+    </mat-list-item>
+    <mat-list-item role="listitem" routerLink="/liked-videos">
+      <mat-icon mat-list-icon class="mx-3">thumb_up</mat-icon>
+      <span>Liked Videos</span>
+    </mat-list-item>
+  </mat-nav-list>
+    <p *ngIf="showFiller">Lorem, ipsum dolor sit amet consectetur.</p>
+    <button (click)="showFiller = !showFiller" mat-raised-button>
+      Toggle extra text
+    </button>
+  </mat-drawer>
+
+
+
+

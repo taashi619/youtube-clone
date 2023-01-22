@@ -1,0 +1,17 @@
+<div class="container mt-5">
+<div class="example-container">
+  <form [formGroup]="loginForm">
+    <mat-form-field appearance="fill">
+      <mat-label>Enter Username</mat-label>
+      <input matInput placeholder="name" [formControl]="username" required>
+    </mat-form-field>
+    <br>
+    <mat-form-field appearance="fill">
+      <mat-label>Enter your Password</mat-label>
+      <input matInput [formControl]="password" required>
+    </mat-form-field>
+    <br>
+    <button type="submit" class="btn btn-primary btn-md" (click)="login()">Login</button>
+  </form>
+</div>
+</div>
