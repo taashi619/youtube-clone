@@ -1,0 +1,7 @@
+<app-header (open)="onOpen($event)"></app-header>
+<mat-drawer-container class="sidenav-container">
+  <app-sidebar [open]="open"></app-sidebar>
+<div class="sidenav-content">
+  <router-outlet></router-outlet>
+</div>
+</mat-drawer-container>

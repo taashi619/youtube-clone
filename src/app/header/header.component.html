@@ -1,0 +1,15 @@
+<mat-toolbar color="primary">
+  <mat-icon (click)="sidenav()">menu</mat-icon>
+ <span>YouTube Clone</span>
+ <span class="example-spacer"></span>
+ <button mat-icon-button>
+   <mat-icon routerLink="upload-video">video_call</mat-icon>
+ </button>
+ <button *ngIf="isAuthenticated;else noAuth" mat-icon-button>
+  <mat-icon (click)="logout()">account_circle</mat-icon>
+</button>
+<ng-template #noAuth>
+<button class="btn btn-primary" (click)="login()">Login</button>
+</ng-template>
+</mat-toolbar>
+

@@ -1,0 +1,60 @@
+
+  <div class="row mt-5 mx-5">
+    <div class="col-4">
+      <div class="h3">Add Video Metadata</div>
+      <form [formGroup]="saveVideoDetailsForm">
+      <mat-form-field appearance="fill">
+        <mat-label>Title</mat-label>
+        <input matInput [formControl]="title" required>
+      </mat-form-field><br>
+      <mat-form-field appearance="fill">
+        <mat-label>Description</mat-label>
+        <input matInput [formControl]="description" required>
+      </mat-form-field><br>
+      <mat-form-field>
+        <mat-label>Video Status</mat-label>
+        <mat-select [formControl]="videoStatus">
+          <mat-option value="PUBLIC">PUBLIC</mat-option>
+          <mat-option value="PRIVATE">PRIVATE</mat-option>
+        </mat-select>
+      </mat-form-field><br>
+
+      <mat-form-field class="example-chip-list" appearance="fill">
+        <mat-label>Tags</mat-label>
+        <mat-chip-grid #chipGrid aria-label="New Tag">
+          <mat-chip-row *ngFor="let tag of tags"
+                        (removed)="remove(tag)"
+                        [editable]="true">
+            {{tag}}
+            <button matChipRemove [attr.aria-label]="'remove ' + tag">
+              <mat-icon>cancel</mat-icon>
+            </button>
+          </mat-chip-row>
+          <input placeholder="New Tag"
+                 [matChipInputFor]="chipGrid"
+                 [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+                 [matChipInputAddOnBlur]="addOnBlur"
+                 (matChipInputTokenEnd)="add($event)"/>
+        </mat-chip-grid>
+      </mat-form-field>
+      <div>
+        <label for="inputGroupFile01">Upload Thumbnail:
+          <div class="custom-file" >
+            <input type="file" class="custom-file-input" id="inputGroupFile01"
+                   aria-describedby="inputGroupFileAddon01" (change)="selectFile($event)">
+          </div>
+          <hr>
+          <div *ngIf="selected">
+            <p>Selected File: {{selectFileName}} </p>
+            <button type="submit" class="btn btn-primary btn-md mb-2" (click)="Onupload()">Upload</button>
+          </div>
+          <button type="submit" class="btn btn-primary btn-md" (click)="saveVideo()">Save</button>
+        </label>
+      </div>
+      </form>
+    </div>
+    <div class="col-8 videoplayer"  >
+      <app-video-player [videoUrl]="videoUrl"></app-video-player>
+    </div>
+  </div>
+
